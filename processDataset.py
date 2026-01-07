@@ -100,18 +100,15 @@ def readProfilmScanFile(filePath):
 def analyzeProfilmUniformity():
     
     #Ask for Scan Positions File
-    scanFilename = filedialog.askopenfilename(title="Select the Scan Positions file", 
-                                          message="Select the Scan Positions file",
+    scanFilename = filedialog.askopenfilename(title="Select the Scan Positions file",
                                           filetypes=[("Text files", "*txt"), ("All files", "*.*")])
     
     #Ask for Profilm data directory
     dataDir = filedialog.askdirectory(title="Select the Folder Containing Your Scan Files",
-                                     message="Select the Folder Containing Your Scan Files",
                                      initialdir=scanFilename)
 
     #Ask for save data file name
-    saveFilename = filedialog.asksaveasfilename(title="Save your TSV results",
-                                                message="Save your TSV results",
+    saveFilename = filedialog.asksaveasfilename(title="Provide a filename for the results",
                                                 defaultextension=".tsv",
                                                 filetypes=[("TSV files", "*.tsv"), ("All files", "*.*")],
                                                 initialdir=dataDir)
