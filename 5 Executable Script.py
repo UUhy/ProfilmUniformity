@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.signal import find_peaks
@@ -16,10 +13,6 @@ from tkinter import messagebox
 
 root = tk.Tk()
 root.withdraw()
-
-
-# In[23]:
-
 
 def loadData(filePath):
     # Load the matrix, skipping the first 3 rows of text
@@ -139,10 +132,6 @@ def analyzeProfilmUniformity():
         z[yi,xi] = height
 
     np.savetxt(saveFilename, z, delimiter="\t")
-
-
-# In[21]:
-
 
 analyzeProfilmUniformity()
 
