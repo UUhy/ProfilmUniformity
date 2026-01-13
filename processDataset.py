@@ -119,7 +119,7 @@ def analyzeProfilmUniformity():
     c = z[0,:]
     for i in filename:
         data = loadData(dataDir + '/' + i)
-        peaks = findPeaks(data,100,0)
+        peaks = findPeaks(data,100,1)
         height = peaks[1] - peaks[0]
         tmp = i.replace(".txt", "").replace("(","").replace(")","")
         tmp = tmp.split(",")
