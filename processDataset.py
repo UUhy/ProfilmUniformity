@@ -29,7 +29,8 @@ def loadData(filePath):
 def findPeaks(data, nBins = 100, showPlot=True):
     
     # Calculate a histogram from data
-    counts, bin_edges = np.histogram(data, bins=nBins)
+    gap = (max(data)-min(data))/nBins
+    counts, bin_edges = np.histogram(data, bins=nBins+10, range=(min(data)-5*gap,max(data)+5*gap))
     binMidpoints = (bin_edges[:-1] + bin_edges[1:]) / 2
 
     # Create a gaussian curve of data to improve peak finding accuracy 
@@ -39,8 +40,8 @@ def findPeaks(data, nBins = 100, showPlot=True):
     y = kde(binMidpoints)*bin_width*total_samples
 
     # Find the peaks in the counts data
-    peaks, _ = find_peaks(counts, distance=10, prominence=max(counts)*0.3)
-    peaksY, _ = find_peaks(y, distance=10, prominence=max(y)*0.1)
+    peaks, _ = find_peaks(counts, distance=5, prominence=max(counts)*0.1)
+    peaksY, _ = find_peaks(y, distance=5, prominence=max(y)*0.1)
     
     # Visualize peaks
     if (showPlot):
